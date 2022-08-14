@@ -2,7 +2,7 @@
 .feedback{
     display: flex;
     justify-content: center;
-    padding-top: 1px;
+  padding: 0;
 }
 
 .feedback__heading{
