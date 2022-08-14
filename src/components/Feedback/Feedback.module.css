@@ -31,8 +31,7 @@
     background-color: rgb(102, 175, 239);
 }
 
-.feedback__button:hover, 
-.feedback__button:focus
+.feedback__button:hover
     {
         background-color: blueviolet;
     }
