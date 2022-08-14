@@ -1,0 +1,18 @@
+.homework__feedback{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 16px;
+    color: rgb(102, 175, 239);
+    text-transform: uppercase;
+    
+  }
+
+  .homework__block{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+  }
