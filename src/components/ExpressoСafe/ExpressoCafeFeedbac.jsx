@@ -4,7 +4,7 @@ import {Feedback} from '../Feedback/Feedback';
 import {Statistics} from '../Statistics/Statistics';
 
 
-function ExpressoCafeFeedbac() {
+export function ExpressoCafeFeedbac() {
   
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
@@ -57,4 +57,3 @@ function ExpressoCafeFeedbac() {
         )
 }
 
-export default ExpressoCafeFeedbac()

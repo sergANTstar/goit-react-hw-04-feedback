@@ -1,5 +1,5 @@
 import css from './App.module.css';
-import ExpressoCafeFeedbac from '../components/ExpressoСafe/ExpressoCafeFeedbac';
+import {ExpressoCafeFeedbac} from '../components/ExpressoСafe/ExpressoCafeFeedbac';
 
 
 
