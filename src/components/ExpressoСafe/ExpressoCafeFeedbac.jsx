@@ -1,64 +1,62 @@
 import React from 'react';
+import { useState } from 'react';
 import {Feedback} from '../Feedback/Feedback';
 import {Statistics} from '../Statistics/Statistics';
 
 
-class ExpressoCafeFeedbac extends React.Component {
-    state = {
-        good: 0,
-        neutral: 0,
-        bad:0,
-    };
+function ExpressoCafeFeedbac() {
+  
+    const [good, setGood] = useState(0);
+    const [neutral, setNeutral] = useState(0);
+    const [ bad, setBad] = useState(0);
 
-    handleNeutral =() =>{
-        this.setState({
-            neutral: this.state.neutral + 1,
-        });
-    };
+    const options = ['good', 'neutral', 'bad'];
 
-    handleBad =() =>{
-        this.setState({
-            bad: this.state.bad + 1,
-        });
-    };
-
-    handleGood =() =>{
-        this.setState({
-            good: this.state.good + 1,
-        });
-    };
-
-    totalFeedback =() => {
-        const {good, neutral, bad} = this.state;
+    const totalFeedback =() => {
         return good + neutral + bad;
     };
 
-    positivePercentage = () => {
-        return parseInt((this.state.good / this.totalFeedback()) * 100);
-    };
+    const positivePercentage = () => {
+        return good ? Math.round((good / totalFeedback()) * 100) : 0;
+  };
 
-    render () {
+    const handleFeedback = e => {
+        switch (e.currentTarget.name) {
+          case 'good':
+            setGood(good + 1);
+            break;
+          case 'neutral':
+            setNeutral(neutral + 1);
+            break;
+          case 'bad':
+            setBad(bad + 1);
+            break;
+          default:
+            return;
+        }
+        totalFeedback();
+        positivePercentage();
+      };
+
+
         return (
             <div>
                 <Feedback
-                handleGood = {this.handleGood}
-                handleNeutral = {this.handleNeutral}
-                handleBad = {this.handleBad}
+                    options={options}
+                    onLeaveFeedback={handleFeedback}
                 /> 
             
-                {this.totalFeedback() ? (
+                {totalFeedback() > 0 ? (
                     <Statistics
-                    good={this.state.good}
-                    neutral={this.state.neutral}
-                    bad={this.state.bad}
-                    total={this.totalFeedback()}
-                    pisitivePercentage={this.positivePercentage()}
+                    good={good}
+                    neutral={neutral}
+                    bad={bad}
+                    total={totalFeedback()}
+                    pisitivePercentage={positivePercentage()}
                     />
-                ) : (<p className='no__feedback'>There is no feedback</p>)}
+                ) : (<p>There is no feedback</p>)}
             </div>
         )
-    }
-
 }
 
-export default ExpressoCafeFeedbac;
+export default ExpressoCafeFeedbac()
