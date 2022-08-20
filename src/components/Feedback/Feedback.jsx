@@ -10,7 +10,7 @@ export const Feedback = ({ options, onLeaveFeedback}) => {
                 <h2 className={css.feedback__heading}>Please leave feedback</h2>
                 <ul className={css.feedback__list}>
                     {options.map(option => (
-                        <li>
+                        <li  key={option}>
                             <button
                                 onClick={onLeaveFeedback}
                                 className={css.feedback__button}
