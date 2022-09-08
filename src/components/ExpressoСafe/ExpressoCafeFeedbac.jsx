@@ -36,6 +36,8 @@ export function ExpressoCafeFeedbac() {
         }
       };
 
+      const feedback = totalFeedback();
+
 
         return (
             <div>
@@ -44,12 +46,12 @@ export function ExpressoCafeFeedbac() {
                     onLeaveFeedback={handleFeedback}
                 /> 
             
-                {totalFeedback() > 0 ? (
+                {feedback > 0 ? (
                     <Statistics
                     good={good}
                     neutral={neutral}
                     bad={bad}
-                    total={totalFeedback()}
+                    total={feedback}
                     pisitivePercentage={positivePercentage()}
                     />
                 ) : (<p>There is no feedback</p>)}
